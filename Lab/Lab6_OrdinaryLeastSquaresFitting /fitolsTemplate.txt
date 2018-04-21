@@ -1,0 +1,39 @@
+function [theta, msq] = fitols(x,y,Ovec)
+% Fit polynomial function on data in OLS sense
+% Author    :
+% Date      :
+% Revision  :
+%
+% Syntax    : [theta,msq] = fitols(x,y,Ovec)
+%
+% theta     :  Parameter vector
+% msq       :  Mean square error
+% x         :  Independent variable
+% y         :  Dependent variable
+%
+%      Ovec indicates terms [1 x x^2 ..]*Ovec'
+%      Example Ovec = [1 0 1] gives [1 x^2] and not x
+
+% If vectors x,y are horizontal, transpose them to make them vertical
+
+
+% Make sure the x and y vector have the same length. If not alert the user
+% with an error dialog box (type help errordlg ) 
+
+
+% Build the matrix of regressors. Check each entry of Ovec, and if it is a
+% 1, add another column to the regression matrix A. 
+A = [];
+
+
+% Compute the parameter vector theta using the OLS formula
+
+
+% Compute the error vector 
+
+
+% Compute the mean square error which indicates how good the fit is
+
+
+% Plot y (Temperature in C) versus x (Current in A). Add labels and title. 
+% Your output should look as shown in the handout.

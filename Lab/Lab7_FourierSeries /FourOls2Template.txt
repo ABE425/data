@@ -1,0 +1,66 @@
+% Fourier series approximation using ordinary least squares fitting
+% Author    : NAME
+% Date      : 
+close all
+clear all
+
+N        = 10000;  % Number of point in input functions (keep even)
+Nbase    = 10;     % Number of basis  functions (choice < N)
+
+% Define a independent time vector [0, 2*pi] with N numbers 
+t        = (2*pi/N:2*pi/N:2*pi)';
+
+% ----------------- Student space starts here -----------------------
+
+% Define input functions
+y        = [ones(1,N/2) -ones(1,N/2)]';               % Square wave
+%y       =  % Define a Sawtooth wave here
+%y       =  % Define a Triangular waveh here 
+
+plot(t,y)
+
+c_0 = mean(y); % this is the first Fourier series coefficient
+
+A = [];
+% Build regressor matrix A for cosine functions using w with Nbase columns
+
+B = [];
+% Build regressor matrix B for sine functions using w with Nbase columns
+
+figure
+% Show that inv(A'*A)is a diagonal matrices with entries
+% 2/N. Use the mesh function to show the matrices and normalize (meaning
+% multiply them by N/2)
+title('Identity matrix demonstrating orthogonality of Cosine basis functions')
+
+figure
+% Show that inv(B'*B)is a diagonal matrices with entries
+% 2/N. Use the mesh function to show the matrices and normalize (meaning
+% multiply them by N/2)
+title('Identity matrix demonstrating orthogonality of Sine basis functions')
+
+% Compute coefficients ThetaCos and ThetaSin using the general OLS formula 
+% Theta = inv(A'*A)*A'*y
+ThetaCos = 
+ThetaSin = 
+
+figure
+% Show the input function as well as the Fourier series approximation in
+% one single plot for the Cosine functions
+title(['Fourier Approximation of wave by ' num2str(Nbase) ' Cosine  functions'])
+
+figure
+% Show the input function as well as the Fourier series approximation in
+% one single plot for the Sine functions
+title(['Fourier Approximation of wave by ' num2str(Nbase) ' Sine functions'])
+
+figure
+% Plot a bar graph of the coefficients for both the Cosine functions 
+%(use the bar function instead of the plot function)
+title(['Fourier coefficients for Cosine basis functions'])
+
+figure
+% Plot a bar graph of the coefficients for both the Sine functions 
+%(use the bar function instead of the plot function)
+title(['Fourier coefficients for Sine basis functions'])
+% ------------------------------------------------------------------
